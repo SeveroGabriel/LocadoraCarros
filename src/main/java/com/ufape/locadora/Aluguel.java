@@ -13,7 +13,7 @@ public class Aluguel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private double valorTotal;
@@ -34,11 +34,11 @@ public class Aluguel {
         this.carro = carro;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

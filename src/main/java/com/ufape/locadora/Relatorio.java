@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Relatorio {
     
-    private int id;
+    private Long id;
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private List<Aluguel> alugueis;
@@ -20,11 +20,11 @@ public class Relatorio {
         this.valorTotal = valorTotal;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

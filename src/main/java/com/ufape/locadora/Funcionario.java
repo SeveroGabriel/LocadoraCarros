@@ -4,7 +4,7 @@ import java.time.LocalDate;
 
 public class Funcionario {
     
-    private int id;
+    private Long id;
     private String nome;
     private String cpf;
     private LocalDate dataNascimento;
@@ -23,11 +23,11 @@ public class Funcionario {
         this.email = email;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

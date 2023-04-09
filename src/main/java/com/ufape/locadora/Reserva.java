@@ -5,14 +5,12 @@ import java.util.Objects;
 
 public class Reserva {
     
-    private int id;
+    private Long id;
     private Cliente cliente;
     private Carro carro;
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private Double valor;
-    
-    public Reserva() {}
     
     public Reserva(Cliente cliente, Carro carro, LocalDate dataInicio, LocalDate dataFim, Double valor) {
         this.cliente = cliente;
@@ -22,11 +20,11 @@ public class Reserva {
         this.valor = valor;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
