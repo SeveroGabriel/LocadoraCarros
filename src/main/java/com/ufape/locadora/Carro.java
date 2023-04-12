@@ -75,4 +75,8 @@ public class Carro {
                 ", valorDiaria=" + valorDiaria +
                 '}';
     }
+
+	public void setDisponivel(boolean b) {
+		
+	}
 }
