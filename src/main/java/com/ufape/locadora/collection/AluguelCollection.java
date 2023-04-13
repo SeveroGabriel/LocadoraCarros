@@ -13,4 +13,5 @@ public interface AluguelCollection {
     List<Aluguel> getByCliente(Cliente cliente);
     List<Aluguel> getByCarro(Carro carro);
     Aluguel getById(Long id);
+	List<Aluguel> findAll();
 }

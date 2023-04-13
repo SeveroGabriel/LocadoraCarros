@@ -9,4 +9,6 @@ public interface CarroCollection {
     Carro buscarPorId(Long id);
     Carro salvar(Carro carro);
     void deletar(Long id);
+	Carro criar(Carro carro);
+	Carro atualizar(Long id, Carro carro);
 }

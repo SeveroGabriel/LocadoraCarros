@@ -71,4 +71,9 @@ public class AluguelCollectionImpl implements AluguelCollection {
     public Aluguel getById(Long id) {
         return entityManager.find(Aluguel.class, id);
     }
+
+	@Override
+	public List<Aluguel> findAll() {
+		return null;
+	}
 }
