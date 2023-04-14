@@ -27,9 +27,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
+		    <groupId>org.postgresql</groupId>
+		    <artifactId>postgresql</artifactId>
+		    <version>42.6.0</version>
 		</dependency>
 
 		<dependency>
@@ -43,8 +43,21 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+		
+		
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-core</artifactId>
+		    <version>6.2.0.Final</version>
+		    <type>pom</type>
+		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+	</dependencies>
+		
 	<build>
 		<plugins>
 			<plugin>
@@ -53,5 +66,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+	
+
 
 </project>
