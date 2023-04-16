@@ -11,7 +11,7 @@ import jakarta.persistence.TypedQuery;
 import com.ufape.locadora.Carro;
 
 @Repository
-public class CarroCollectionImpl implements CarroCollection {
+public abstract class CarroCollectionImpl implements CarroCollection {
 
     @PersistenceContext
     private EntityManager entityManager;

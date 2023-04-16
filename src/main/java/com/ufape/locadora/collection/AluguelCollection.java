@@ -14,4 +14,5 @@ public interface AluguelCollection {
     List<Aluguel> getByCarro(Carro carro);
     Aluguel getById(Long id);
 	List<Aluguel> findAll();
+	boolean existe(Long id);
 }

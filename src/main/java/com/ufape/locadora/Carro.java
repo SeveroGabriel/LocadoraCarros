@@ -1,31 +1,45 @@
 package com.ufape.locadora;
 
+import org.hibernate.annotations.Table;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import org.hibernate.annotations.Table;
-
+import jakarta.persistence.ManyToOne;
 
 @Entity
-@Table(name = "carros")
+@Table(appliesTo = "carro")
 public class Carro {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
+    @ManyToOne(cascade = CascadeType.MERGE)
+    private float kmsRodados;
+    private String documentoCarro;
+    private String tipoCombustivel;
     private String marca;
     private String modelo;
-    private int ano;
-    private double valorDiaria;
+    private String placa;
+    private double valorCarro;
+    private boolean estaAlugado;
 
-    public Carro() {}
+    public double getValorCarro() {
+        return valorCarro;
+    }
 
-    public Carro(String marca, String modelo, int ano, double valorDiaria) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.ano = ano;
-        this.valorDiaria = valorDiaria;
+    public void setValorCarro(double valorCarro) {
+        this.valorCarro = valorCarro;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
     }
 
     public Long getId() {
@@ -34,6 +48,30 @@ public class Carro {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public float getKmsRodados() {
+        return kmsRodados;
+    }
+
+    public void setKmsRodados(float kmsRodados) {
+        this.kmsRodados = kmsRodados;
+    }
+
+    public String getDocumentoCarro() {
+        return documentoCarro;
+    }
+
+    public void setDocumentoCarro(String documentoCarro) {
+        this.documentoCarro = documentoCarro;
+    }
+
+    public String getTipoCombustivel() {
+        return tipoCombustivel;
+    }
+
+    public void setTipoCombustivel(String tipoCombustivel) {
+        this.tipoCombustivel = tipoCombustivel;
     }
 
     public String getMarca() {
@@ -52,34 +90,26 @@ public class Carro {
         this.modelo = modelo;
     }
 
-    public int getAno() {
-        return ano;
+    public boolean isEstaAlugado() {
+        return estaAlugado;
     }
 
-    public void setAno(int ano) {
-        this.ano = ano;
-    }
-
-    public double getValorDiaria() {
-        return valorDiaria;
-    }
-
-    public void setValorDiaria(double valorDiaria) {
-        this.valorDiaria = valorDiaria;
+    public void setEstaAlugado(boolean estaAlugado) {
+        this.estaAlugado = estaAlugado;
     }
 
     @Override
     public String toString() {
         return "Carro{" +
                 "id=" + id +
+                ", kmsRodados=" + kmsRodados +
+                ", documentoCarro='" + documentoCarro + '\'' +
+                ", tipoCombustivel='" + tipoCombustivel + '\'' +
                 ", marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +
-                ", ano=" + ano +
-                ", valorDiaria=" + valorDiaria +
+                ", placa='" + placa + '\'' +
+                ", valorCarro=" + valorCarro +
+                ", estaAlugado=" + estaAlugado +
                 '}';
     }
-
-	public void setDisponivel(boolean b) {
-		
-	}
 }

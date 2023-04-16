@@ -14,7 +14,17 @@ import com.ufape.locadora.Reserva;
 
 public class Fachada {
 
-    private CarroCollection carros;
+    private CarroCollection carros = new CarroCollectionImpl() {
+        @Override
+        public Carro criar(Carro carro) {
+            return null;
+        }
+
+        @Override
+        public Carro atualizar(Long id, Carro carro) {
+            return null;
+        }
+    };
     private ClienteCollection clientes;
     private AluguelCollection alugueis;
     private ReservaCollection reservas;
@@ -22,7 +32,6 @@ public class Fachada {
     private RelatorioCollection relatorios;
 
     public Fachada() {
-        this.carros = new CarroCollectionImpl();
         this.clientes = new ClienteCollectionImpl(null);
         this.alugueis = new AluguelCollectionImpl();
         this.reservas = new ReservaCollectionImpl();

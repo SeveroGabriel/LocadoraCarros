@@ -1,5 +1,6 @@
 package com.ufape.locadora;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -7,12 +8,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDate;
+import org.hibernate.annotations.Table;
+import com.ufape.locadora.Cliente;
+import com.ufape.locadora.Carro;
 
 @Entity
+@Table(appliesTo = "aluguel")
 public class Aluguel {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private Long id;
     private LocalDate dataInicio;
     private LocalDate dataFim;

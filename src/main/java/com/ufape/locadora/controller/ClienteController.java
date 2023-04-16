@@ -3,39 +3,47 @@ package com.ufape.locadora.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import com.ufape.locadora.Cliente;
+import com.ufape.locadora.DTO.ClienteDTO;
 import com.ufape.locadora.collection.ClienteCollection;
 
 @RestController
-@RequestMapping("/clientes")
+@RequestMapping("/api/clientes")
 public class ClienteController {
 
     @Autowired
     private ClienteCollection clienteCollection;
 
-    @PostMapping
-    public ResponseEntity<Cliente> criarCliente(@RequestBody ClienteRequest request) {
-        Cliente cliente = clienteCollection.criarCliente(request.getNome(), request.getEmail(), request.getTelefone());
-        return ResponseEntity.ok(cliente);
+    @GetMapping("")
+    public ResponseEntity<List<ClienteDTO>> getClientes() {
+        List<ClienteDTO> clientes = ClienteCollection.getClientes();
+        return new ResponseEntity<>(clientes, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Cliente> buscarClientePorId(@PathVariable Long id) {
-        Cliente cliente = clienteCollection.buscarClientePorId(id);
-        return ResponseEntity.ok(cliente);
+    public ResponseEntity<ClienteDTO> getClienteById(@PathVariable Long id) {
+        ClienteDTO cliente = clienteCollection.getClienteById(id);
+        return new ResponseEntity<>(cliente, HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<List<Cliente>> buscarTodosClientes() {
-        List<Cliente> clientes = clienteCollection.buscarTodosClientes();
-        return ResponseEntity.ok(clientes);
+    @PostMapping("")
+    public ResponseEntity<ClienteDTO> createCliente(@RequestBody ClienteDTO clienteDTO) {
+        ClienteDTO cliente = clienteCollection.createCliente(clienteDTO);
+        return new ResponseEntity<>(cliente, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ClienteDTO> updateCliente(@PathVariable Long id, @RequestBody ClienteDTO clienteDTO) {
+        ClienteDTO cliente = clienteCollection.updateCliente(id, clienteDTO);
+        return new ResponseEntity<>(cliente, HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteCliente(@PathVariable Long id) {
+        clienteCollection.deleteById(id);
+        return new ResponseEntity<>("Cliente excluído com sucesso", HttpStatus.OK);
     }
 }
