@@ -78,9 +78,7 @@ public class AluguelCollectionImpl implements AluguelCollection {
 	@Override
 	public AluguelDTO getById(Long id) {
 	    for (Aluguel aluguel : aluguel) {
-	        if (aluguel.getId().equals(id)) {
-	            return aluguel;
-	        }
+	        if (aluguel.getId().equals(id)) return aluguel;
 	    }
 	    return null;
 	}

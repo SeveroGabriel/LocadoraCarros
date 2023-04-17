@@ -18,7 +18,6 @@ public class Carro {
     private Long id;
     @ManyToOne(cascade = CascadeType.MERGE)
     private float kmsRodados;
-    private String documentoCarro;
     private String tipoCombustivel;
     private String marca;
     private String modelo;
@@ -58,14 +57,6 @@ public class Carro {
         this.kmsRodados = kmsRodados;
     }
 
-    public String getDocumentoCarro() {
-        return documentoCarro;
-    }
-
-    public void setDocumentoCarro(String documentoCarro) {
-        this.documentoCarro = documentoCarro;
-    }
-
     public String getTipoCombustivel() {
         return tipoCombustivel;
     }
@@ -103,7 +94,6 @@ public class Carro {
         return "Carro{" +
                 "id=" + id +
                 ", kmsRodados=" + kmsRodados +
-                ", documentoCarro='" + documentoCarro + '\'' +
                 ", tipoCombustivel='" + tipoCombustivel + '\'' +
                 ", marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +

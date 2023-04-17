@@ -6,7 +6,7 @@
       <v-toolbar-items>
         <v-btn text>Contato</v-btn>
         <v-btn text>Sobre Nós</v-btn>
-        <v-btn text>Locação</v-btn>
+        <v-btn text>Login</v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <!-- conteúdo da página -->

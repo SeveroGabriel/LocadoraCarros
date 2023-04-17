@@ -24,6 +24,7 @@ public class AluguelController {
 
     @Autowired
     private AluguelCollection aluguelCollection;
+    private AluguelDTO aluguelDTO;
 
     @GetMapping("/{id}")
     public ResponseEntity<AluguelDTO> buscarAluguel(@PathVariable Long id) {
@@ -68,4 +69,15 @@ public class AluguelController {
         }
     }
 
+    public AluguelDTO alugarCarro() {
+        return alugarCarro(null);
+    }
+
+    public AluguelDTO alugarCarro(AluguelDTO aluguelDTO) {
+        this.aluguelDTO = aluguelDTO;
+        CarroDTO carro = aluguelDTO.getCarro();
+
+        if (carro.isAlugado()) throw new CarroJaAlugadoException("O carro já está alugado.");
+
+    }
 }
