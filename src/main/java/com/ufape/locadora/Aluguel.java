@@ -9,8 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDate;
 import org.hibernate.annotations.Table;
-import com.ufape.locadora.Cliente;
-import com.ufape.locadora.Carro;
 
 @Entity
 @Table(appliesTo = "aluguel")
@@ -24,18 +22,18 @@ public class Aluguel {
     private double valorTotal;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private Cliente cliente;
+    private Cliente Cliente;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Carro carro;
 
-    public Aluguel() {}
+    public Aluguel(double d, int i) {}
 
     public Aluguel(LocalDate dataInicio, LocalDate dataFim, double valorTotal, Cliente cliente, Carro carro) {
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
         this.valorTotal = valorTotal;
-        this.cliente = cliente;
+        this.Cliente = cliente;
         this.carro = carro;
     }
 
@@ -72,11 +70,11 @@ public class Aluguel {
     }
 
     public Cliente getCliente() {
-        return cliente;
+        return Cliente;
     }
 
     public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+        this.Cliente = cliente;
     }
 
     public Carro getCarro() {
@@ -94,7 +92,7 @@ public class Aluguel {
                 ", dataInicio=" + dataInicio +
                 ", dataFim=" + dataFim +
                 ", valorTotal=" + valorTotal +
-                ", cliente=" + cliente +
+                ", cliente=" + Cliente +
                 ", carro=" + carro +
                 '}';
     }

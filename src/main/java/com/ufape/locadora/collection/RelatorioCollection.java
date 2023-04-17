@@ -3,6 +3,7 @@ package com.ufape.locadora.collection;
 import java.util.List;
 import java.util.Optional;
 
+import com.ufape.locadora.Aluguel;
 import com.ufape.locadora.Relatorio;
 import com.ufape.locadora.DTO.AluguelDTO;
 import com.ufape.locadora.DTO.CarroDTO;
@@ -17,4 +18,5 @@ public interface RelatorioCollection {
 	Double gerarRelatorioFaturamento();
 	List<CarroDTO> gerarRelatorioCarrosMaisAlugados();
 	List<ClienteDTO> gerarRelatorioClientesMaisFrequentes();
+	Aluguel getById(Long id);
 }

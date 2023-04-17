@@ -6,81 +6,79 @@ import com.ufape.locadora.Cliente;
 import java.time.LocalDate;
 
 public class AluguelDTO {
+    private static final Cliente Cliente = null;
 	private Long id;
-    private Cliente cliente;
     private Carro carro;
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private Double valor;
     private Boolean pago;
-    
-	public AluguelDTO(Long id, Cliente cliente, Carro carro, LocalDate dataInicio, LocalDate dataFim, Double valor,
-			Boolean pago) {
-		super();
-		this.id = id;
-		this.cliente = cliente;
-		this.carro = carro;
-		this.dataInicio = dataInicio;
-		this.dataFim = dataFim;
-		this.valor = valor;
-		this.pago = pago;
-	}
 
-	public Long getId() {
-		return id;
-	}
+    public AluguelDTO() {}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public AluguelDTO(Long id, Cliente cliente, Carro carro, LocalDate dataInicio, LocalDate dataFim, Double valor, Boolean pago) {
+        this.id = id;
+        this.Cliente = Cliente();
+        this.carro = carro;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.valor = valor;
+        this.pago = pago;
+    }
 
-	public Cliente getCliente() {
-		return cliente;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Carro getCarro() {
-		return carro;
-	}
+    public Cliente getCliente() {
+        return Cliente;
+    }
 
-	public void setCarro(Carro carro) {
-		this.carro = carro;
-	}
+    public void setCliente(Cliente Cliente) {
+        this.Cliente = Cliente;
+    }
 
-	public LocalDate getDataInicio() {
-		return dataInicio;
-	}
+    public Carro carro() {
+        return carro;
+    }
 
-	public void setDataInicio(LocalDate dataInicio) {
-		this.dataInicio = dataInicio;
-	}
+    public void setIdCarro(Long idCarro) {
+        this.idCarro = idCarro;
+    }
 
-	public LocalDate getDataFim() {
-		return dataFim;
-	}
+    public LocalDate getDataInicio() {
+        return dataInicio;
+    }
 
-	public void setDataFim(LocalDate dataFim) {
-		this.dataFim = dataFim;
-	}
+    public void setDataInicio(LocalDate dataInicio) {
+        this.dataInicio = dataInicio;
+    }
 
-	public Double getValor() {
-		return valor;
-	}
+    public LocalDate getDataFim() {
+        return dataFim;
+    }
 
-	public void setValor(Double valor) {
-		this.valor = valor;
-	}
+    public void setDataFim(LocalDate dataFim) {
+        this.dataFim = dataFim;
+    }
 
-	public Boolean getPago() {
-		return pago;
-	}
+    public Double getValor() {
+        return valor;
+    }
 
-	public void setPago(Boolean pago) {
-		this.pago = pago;
-	}
+    public void setValor(Double valor) {
+        this.valor = valor;
+    }
 
-    
+    public Boolean getPago() {
+        return pago;
+    }
+
+    public void setPago(Boolean pago) {
+        this.pago = pago;
+    }
 }

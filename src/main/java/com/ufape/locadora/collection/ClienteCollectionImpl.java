@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ufape.locadora.Cliente;
+import com.ufape.locadora.DTO.ClienteDTO;
 
 import jakarta.persistence.EntityManager;
 
@@ -20,7 +21,11 @@ public class ClienteCollectionImpl implements ClienteCollection {
         this.entityManager = entityManager;
     }
 
-    @Override
+    public ClienteCollectionImpl() {
+		this.entityManager = null;
+	}
+
+	@Override
     public List<Cliente> findAll() {
         return entityManager.createQuery("FROM Cliente", Cliente.class).getResultList();
     }
@@ -40,4 +45,23 @@ public class ClienteCollectionImpl implements ClienteCollection {
         Cliente cliente = entityManager.find(Cliente.class, id);
         entityManager.remove(cliente);
     }
+
+	public ClienteDTO buscarClientePorCPF(String string) {
+		return null;
+	}
+
+	@Override
+	public ClienteDTO getClienteById(Long id) {
+		return null;
+	}
+
+	@Override
+	public ClienteDTO createCliente(ClienteDTO clienteDTO) {
+		return null;
+	}
+
+	@Override
+	public ClienteDTO updateCliente(Long id, ClienteDTO clienteDTO) {
+		return null;
+	}
 }

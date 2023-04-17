@@ -5,6 +5,7 @@ import java.util.List;
 import com.ufape.locadora.Aluguel;
 import com.ufape.locadora.Carro;
 import com.ufape.locadora.Cliente;
+import com.ufape.locadora.DTO.AluguelDTO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -15,6 +16,7 @@ public class AluguelCollectionImpl implements AluguelCollection {
 
     private final EntityManagerFactory entityManagerFactory;
     private final EntityManager entityManager;
+	private Aluguel[] aluguel;
 
     public AluguelCollectionImpl() {
         entityManagerFactory = Persistence.createEntityManagerFactory("default");
@@ -67,13 +69,34 @@ public class AluguelCollectionImpl implements AluguelCollection {
         return query.getResultList();
     }
 
-    @Override
-    public Aluguel getById(Long id) {
-        return entityManager.find(Aluguel.class, id);
-    }
 
 	@Override
 	public List<Aluguel> findAll() {
 		return null;
 	}
+	
+	@Override
+	public AluguelDTO getById(Long id) {
+	    for (Aluguel aluguel : aluguel) {
+	        if (aluguel.getId().equals(id)) {
+	            return aluguel;
+	        }
+	    }
+	    return null;
+	}
+
+	@Override
+	public boolean existe(Long id) {
+		return false;
+	}
+
+	@Override
+	public void deletarPorId(Long id) {		
+	}
+
+	@Override
+	public AluguelDTO save(AluguelDTO aluguelDTO) {
+		return null;
+	}
+
 }

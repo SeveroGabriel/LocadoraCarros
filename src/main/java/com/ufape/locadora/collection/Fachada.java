@@ -25,34 +25,30 @@ public class Fachada {
             return null;
         }
     };
-    private ClienteCollection clientes;
-    private AluguelCollection alugueis;
-    private ReservaCollection reservas;
-    private FuncionarioCollection funcionarios;
-    private RelatorioCollection relatorios;
+    private ClienteCollection cliente;
+    private AluguelCollection aluguel = new AluguelCollectionImpl();
+    private ReservaCollection reserva = new ReservaCollectionImpl();
+    private FuncionarioCollection funcionario = new FuncionarioCollectionImpl(null);
+    private final RelatorioCollection relatorio = new RelatorioCollectionImpl(null);
 
     public Fachada() {
-        this.clientes = new ClienteCollectionImpl(null);
-        this.alugueis = new AluguelCollectionImpl();
-        this.reservas = new ReservaCollectionImpl();
-        this.funcionarios = new FuncionarioCollectionImpl(null);
-        this.relatorios = new RelatorioCollectionImpl(null);
+        this.cliente = new ClienteCollectionImpl(null);
     }
 
     public void cadastrarCliente(Cliente cliente) {
-        clientes.save(cliente);
+        this.cliente.save(cliente);
     }
 
     public void removerCliente(Long id) throws NotFoundException {
-        clientes.deleteById(id);
+        cliente.deleteById(id);
     }
 
     public List<Cliente> listarClientes() {
-        return clientes.findAll();
+        return cliente.findAll();
     }
 
     public Optional<Cliente> buscarCliente(Long id) throws NotFoundException {
-        return clientes.findById(id);
+        return cliente.findById(id);
     }
 
     public void cadastrarCarro(Carro carro) {
@@ -72,39 +68,39 @@ public class Fachada {
     }
 
     public void registrarAluguel(Aluguel aluguel) {
-        alugueis.save(aluguel);
+        aluguel.save(aluguel);
     }
 
     public void registrarReserva(Reserva reserva) {
-        reservas.save(reserva);
+        reserva.save(reserva);
     }
 
     public List<Aluguel> listarAlugueis() {
-        return alugueis.findAll();
+        return aluguel.findAll();
     }
 
     public List<Reserva> listarReservas() {
-        return reservas.findAll();
+        return reserva.findAll();
     }
 
     public void cadastrarFuncionario(Funcionario funcionario) {
-        funcionarios.save(funcionario);
+        funcionario.save(funcionario);
     }
 
     public void removerFuncionario(Long id) throws NotFoundException {
-        funcionarios.deleteById(id);
+        funcionario.deleteById(id);
     }
 
     public List<Funcionario> listarFuncionarios() {
-        return funcionarios.findAll();
+        return funcionario.findAll();
     }
 
     public Optional<Funcionario> buscarFuncionario(Long id) throws NotFoundException {
-        return funcionarios.findById(id);
+        return funcionario.findById(id);
     }
 
     public List<Relatorio> gerarRelatorio() {
-        return relatorios.findAll();
+        return relatorio.findAll();
     }
 
 }

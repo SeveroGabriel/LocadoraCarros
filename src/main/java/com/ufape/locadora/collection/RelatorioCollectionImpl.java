@@ -11,7 +11,7 @@ import com.ufape.locadora.Relatorio;
 import jakarta.persistence.EntityManager;
 
 @Repository
-public class RelatorioCollectionImpl implements RelatorioCollection {
+public abstract class RelatorioCollectionImpl implements RelatorioCollection {
 
     private final EntityManager entityManager;
 

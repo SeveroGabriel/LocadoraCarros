@@ -42,7 +42,7 @@ public class AluguelController {
     }
 
     @PostMapping
-    public ResponseEntity<AluguelDTO> criarAluguel(@RequestBody AluguelDTO aluguelDTO) {
+    public AluguelDTO criarAluguel(@RequestBody AluguelDTO aluguelDTO) {
         aluguelDTO = aluguelCollection.save(aluguelDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(aluguelDTO);
     }
