@@ -15,10 +15,10 @@ public class AluguelAPITest {
         RestAssured.baseURI = "http://localhost:8080";
         AluguelDTO expected = new AluguelDTO();
         expected.setId(1L);
-        expected.setClienteId(1L);
-        expected.setCarroId(1L);
-        expected.setDataAluguel("2022-01-01");
-        expected.setDataDevolucao("2022-01-10");
+        expected.setCliente(1L);
+        expected.setId(1L);
+        expected.setDataInicio("2023-04-17");
+        expected.setDataFim("2023-04-20");
         expected.setValorTotal(1000.0);
 
         given()
@@ -39,10 +39,10 @@ public class AluguelAPITest {
     public void testCreate() {
         RestAssured.baseURI = "http://localhost:8080";
         AluguelDTO aluguel = new AluguelDTO();
-        aluguel.setClienteId(1L);
-        aluguel.setCarroId(1L);
-        aluguel.setDataAluguel("2022-01-01");
-        aluguel.setDataDevolucao("2022-01-10");
+        aluguel.setCliente(1L);
+        aluguel.setId(1L);
+        aluguel.setDataInicio("2023-04-17");
+        aluguel.setDataFim("2023-04-20");
         aluguel.setValorTotal(1000.0);
 
         given()
@@ -59,10 +59,10 @@ public class AluguelAPITest {
         RestAssured.baseURI = "http://localhost:8080";
         AluguelDTO aluguel = new AluguelDTO();
         aluguel.setId(1L);
-        aluguel.setClienteId(2L);
-        aluguel.setCarroId(2L);
-        aluguel.setDataAluguel("2022-01-02");
-        aluguel.setDataDevolucao("2022-01-11");
+        aluguel.setCliente(2L);
+        aluguel.setId(2L);
+        aluguel.setDataInicio("2023-04-18");
+        aluguel.setDataFim("2023-04-21");
         aluguel.setValorTotal(1500.0);
 
         given()

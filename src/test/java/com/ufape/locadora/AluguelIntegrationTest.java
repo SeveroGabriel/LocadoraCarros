@@ -1,5 +1,7 @@
 package com.ufape.locadora;
 
+import static org.junit.Assert.assertEquals;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
@@ -22,8 +24,8 @@ public class AluguelIntegrationTest {
     @Test
     public void testCriarAluguel() {
         // Cria um novo aluguel para um carro e um cliente existentes
-        Long idCarro = 1L;
-        Long idCliente = 2L;
+        Long Carro = 1L;
+        Long Cliente = 2L;
         LocalDate dataInicio = LocalDate.now();
         LocalDate dataFim = LocalDate.now().plusDays(7);
         BigDecimal valorTotal = BigDecimal.valueOf(700.00);
@@ -34,7 +36,7 @@ public class AluguelIntegrationTest {
         AluguelDTO novoAluguel = aluguelController.criarAluguel(aluguelDTO);
 
         // Verifica se o aluguel foi criado corretamente
-        assertEquals(Carro, novoAluguel.getCarro());
+        assertEquals(Carro, novoAluguel.carro());
         assertEquals(Cliente, novoAluguel.getCliente());
         Assertions.assertEquals(dataInicio, novoAluguel.getDataInicio());
         Assertions.assertEquals(dataFim, novoAluguel.getDataFim());

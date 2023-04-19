@@ -35,7 +35,6 @@ public class FuncionarioCollectionImpl implements FuncionarioCollection {
         return entityManager.merge(funcionario);
     }
 
-    @Override
     public void deleteById(Long id) {
         Funcionario funcionario = entityManager.find(Funcionario.class, id);
         entityManager.remove(funcionario);
