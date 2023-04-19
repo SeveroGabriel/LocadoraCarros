@@ -12,6 +12,7 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    private String cpf;
     private String email;
     private String telefone;
     private String endereco;
@@ -40,7 +41,16 @@ public class Cliente {
     public void setNome(String nome) {
         this.nome = nome;
     }
+    
 
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
     public String getEmail() {
         return email;
     }
@@ -70,6 +80,7 @@ public class Cliente {
         return "Cliente{" +
                 "id=" + id +
                 ", nome='" + nome + '\'' +
+                ", cpf='" + cpf + '\'' +
                 ", email='" + email + '\'' +
                 ", telefone='" + telefone + '\'' +
                 ", endereco='" + endereco + '\'' +

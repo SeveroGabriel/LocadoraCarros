@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ufape.locadora.Carro;
 import com.ufape.locadora.DTO.AluguelDTO;
 import com.ufape.locadora.collection.AluguelCollection;
+import com.ufape.locadora.exception.CarroJaAlugadoException;
+
 
 
 @RestController
@@ -24,8 +27,6 @@ public class AluguelController {
 
     @Autowired
     private AluguelCollection aluguelCollection;
-    private AluguelDTO aluguelDTO;
-
     @GetMapping("/{id}")
     public ResponseEntity<AluguelDTO> buscarAluguel(@PathVariable Long id) {
         AluguelDTO aluguelDTO = aluguelCollection.getById(id);
@@ -43,7 +44,7 @@ public class AluguelController {
     }
 
     @PostMapping
-    public AluguelDTO criarAluguel(@RequestBody AluguelDTO aluguelDTO) {
+    public ResponseEntity<AluguelDTO> criarAluguel(@RequestBody AluguelDTO aluguelDTO) {
         aluguelDTO = aluguelCollection.save(aluguelDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(aluguelDTO);
     }
@@ -74,10 +75,10 @@ public class AluguelController {
     }
 
     public AluguelDTO alugarCarro(AluguelDTO aluguelDTO) {
-        this.aluguelDTO = aluguelDTO;
-        CarroDTO carro = aluguelDTO.getCarro();
+        Carro carro = aluguelDTO.carro();
 
-        if (carro.isAlugado()) throw new CarroJaAlugadoException("O carro já está alugado.");
+        if (carro.isEstaAlugado()) throw new CarroJaAlugadoException("O carro já está alugado.");
+		return aluguelDTO;
 
     }
 }

@@ -6,7 +6,7 @@ import com.ufape.locadora.Cliente;
 import java.time.LocalDate;
 
 public class AluguelDTO {
-    private static final Cliente Cliente = null;
+    private static Cliente Cliente = null;
 	private Long id;
     private Carro carro;
     private LocalDate dataInicio;
@@ -18,7 +18,7 @@ public class AluguelDTO {
 
     public AluguelDTO(Long id, Cliente cliente, Carro carro, LocalDate dataInicio, LocalDate dataFim, Double valor, Boolean pago) {
         this.id = id;
-        this.Cliente = Cliente();
+        AluguelDTO.Cliente = getCliente();
         this.carro = carro;
         this.dataInicio = dataInicio;
         this.dataFim = dataFim;
@@ -39,7 +39,7 @@ public class AluguelDTO {
     }
 
     public void setCliente(Cliente Cliente) {
-        this.Cliente = Cliente;
+        AluguelDTO.Cliente = Cliente;
     }
 
     public Carro carro() {
@@ -47,7 +47,7 @@ public class AluguelDTO {
     }
 
     public void setIdCarro(Long idCarro) {
-        this.idCarro = idCarro;
+        this.carro = carro;
     }
 
     public LocalDate getDataInicio() {
@@ -62,8 +62,8 @@ public class AluguelDTO {
         return dataFim;
     }
 
-    public void setDataFim(LocalDate dataFim) {
-        this.dataFim = dataFim;
+    public void setDataFim(LocalDate string) {
+        this.dataFim = string;
     }
 
     public Double getValor() {
